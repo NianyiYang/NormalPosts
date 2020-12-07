@@ -179,3 +179,29 @@ private void createScroller() {
 >
 > 
 
+### 改为AndroidX后打包出现问题
+
+https://www.jianshu.com/p/c8e1735bf72c
+
+compile 版本提升到 28
+
+### 混淆规则需要添加
+
+```groovy
+-keep class com.google.android.material.** {*;}
+
+-keep class androidx.** {*;}
+
+-keep public class * extends androidx.**
+
+-keep interface androidx.** {*;}
+
+-dontwarn com.google.android.material.**
+
+-dontnote com.google.android.material.**
+
+-dontwarn androidx.**
+```
+
+
+
